@@ -8,6 +8,32 @@ const getCharCountList = (list) => list.map(item => ({ word: item, ...getCharCou
 
 const reduceWord = ({ ['word']: deletedKey, ...others}) => others;
 
+const writeNewList = (list) =>  {
+    try {
+        fs.writeFileSync('./list', list.join('\n'))
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+const removeWord = (list, word) => {
+    const index = list.indexOf(word);
+    if (index !== -1) {
+        list.splice(index, 1);
+    }
+    writeNewList(list);
+    return list;
+}
+
+const addWord = (list) => {
+    const newWord = getNewWord()
+    list.push(newWord);
+    list.sort();
+    writeNewList(list);
+    console.log("New word added to dictionary: " + newWord);
+    return;
+}
+
 const sortFunction = (a, b) => {
     if(a[1] === b[1]) return 0;
     return (a[1] < b[1]) ? 1 : -1
@@ -69,10 +95,18 @@ const getGuessAndPattern = () => {
         guess = prompt('What was your guess? ');
     }
     let pattern = "";
-    while(typeof pattern !== 'string' && !(pattern instanceof String) || pattern.length !== 5 || !/^[gxy]+$/i.test(pattern)){
+    while(typeof pattern !== 'string' && !(pattern instanceof String) || pattern.length !== 5 || !/^[egxy]+$/i.test(pattern)){
         pattern = prompt('What was the pattern g - green, y - yellow, x - grey, ex: ggxyx? ');
     }
     return { guess, pattern };
+}
+
+const getNewWord = () => {
+    let word = "";
+    while(typeof word !== 'string' && !(word instanceof String) || word.length !== 5 || !/^[a-z]+$/i.test(word)){
+        word = prompt('Enter your solution to add to dictionary: ');
+    }
+    return word;
 }
 
 const filterListByGuess = (list, guess) => {
@@ -90,6 +124,10 @@ const filterListByGuess = (list, guess) => {
             }
             case 'y': {
                 newTemp = temp.filter(item => item.includes(guess.guess[i]) && item[i] !== guess.guess[i]);
+                break;
+            }
+            case 'e': {
+                newTemp = temp.filter(item => item !== guess.guess);
                 break;
             }
             default: {
@@ -112,11 +150,21 @@ const game = (list) => {
     for(let k = 0; k < 6; k++){
         const guess = getGuessAndPattern();
         console.log("Guess: " + guess.guess, " Pattern: " + guess.pattern );
+        if(guess.pattern === 'eeeee') {
+            console.log('I guess we outsmarted Wordle if they dont even know ' + guess.guess);
+            console.log('Removing ' + guess.guess + ' from dictionary...');
+            list = removeWord(list, guess.guess);
+        }
         if(guess.pattern === 'ggggg') {
             console.log('Congrats you won!');
             return;
         }
         const newList = filterListByGuess(tempList, guess);
+        if(newList.length === 0){
+            console.log("No solutions left! Looks like we're missing some words...🤷");
+            addWord(list);
+            return;
+        }
         console.log("Guess Suggestion: " + getSuggestionFromList(newList).word);
         console.log("Remaining Possilbe Words: " + newList.length);
         tempList = [...newList]
