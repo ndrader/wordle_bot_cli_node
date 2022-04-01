@@ -23,3 +23,11 @@ example:
 word: arose
 pattern: xxgyx
 ```
+
+## Apr 1 - nytimes
+
+Wordle 286 3/6
+
+⬛⬛🟩🟨⬛
+🟩⬛🟩🟩🟩
+🟩🟩🟩🟩🟩
