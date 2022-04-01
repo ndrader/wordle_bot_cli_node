@@ -166,7 +166,7 @@ const game = (list) => {
             return;
         }
         console.log("Guess Suggestion: " + getSuggestionFromList(newList).word);
-        console.log("Remaining Possilbe Words: " + newList.length);
+        console.log("Remaining Possible Words: " + newList.length);
         tempList = [...newList]
     }
 }
