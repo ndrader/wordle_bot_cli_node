@@ -2,9 +2,9 @@
   "name": "wordle_bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/cli_solver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/cli_solver.js"
   },
   "author": "",
   "license": "ISC",

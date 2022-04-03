@@ -8,7 +8,7 @@ is fast enough when running locally
 ## To run
 
 `npm i`
-`node index.js`
+`node cli_solvercli_solver.js`
 
 ## Entering a guess
 
