@@ -2,9 +2,9 @@
   "name": "wordle_bot",
   "version": "1.0.0",
   "description": "",
-  "main": "src/cli_solver.js",
   "scripts": {
-    "start": "node src/cli_solver.js"
+    "start": "node src/cliRunner.js",
+    "simVsBot": "node src/gameSimAgainstBot.js"
   },
   "author": "",
   "license": "ISC",

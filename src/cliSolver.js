@@ -1,6 +1,3 @@
-const fs = require("fs");
-
-const text = fs.readFileSync("./list").toString('utf-8').split('\n');
 
 const getCharCount = (word) => [...word].reduce((a, e) => { a[e] = a[e] ? a[e] + 1 : 1; return a }, {}); 
 
@@ -29,7 +26,7 @@ const getSortedNumList = (list) => Object.entries(list).sort(sortFunction);
 
 const getWeight = (item, numListObj) => {
   let sum = 0;
-  for(const [key, value] of Object.entries(reduceWord(item))) {
+  for(const [key] of Object.entries(reduceWord(item))) {
     sum += numListObj[key];
   }
   return sum;
@@ -39,15 +36,15 @@ const getMaxWeighted = (list) => list.reduce( (max, obj) => (max.weight > obj.we
 
 const getSuggestions = (list, numList, numListObj, depth = 0) => {
   if(depth === 0 && list.length === 1) return list[0];
-  if(depth === 5) return list;
+  if(depth === 5 || (depth === numList.length && depth !== 0)) return list;
   if(list.length === 1) return list;
   const newList = list.filter(item => item.word.includes(numList[depth][0]));
-  if(newList.length < 2) return list;
+  if(newList.length < 2 && depth !== 0) return list;
   const unweightedSuggestions = getSuggestions(newList, numList, numListObj, depth + 1);
   if (depth > 0) return unweightedSuggestions;
 
   if (unweightedSuggestions.length > 1) {
-    const weightedSuggestions = unweightedSuggestions.map(item => ({ ...item, weight: getWeight(item, numListObj)  }));
+    const weightedSuggestions = unweightedSuggestions.map(item => ({ ...item, weight: getWeight(item, numListObj) }));
     return getMaxWeighted(weightedSuggestions);
   }
   return unweightedSuggestions[0];
@@ -57,8 +54,7 @@ const getSuggestionFromList = (list) => {
   const countedList = getCharCountList(list);
   const sumListObj = getLetterFrequency(countedList);
   const sumList = getSortedNumList(sumListObj);
-  const suggestion = getSuggestions(countedList, sumList, sumListObj);
-  return suggestion;
+  return getSuggestions(countedList, sumList, sumListObj);
 }
 
 const prompt = require('prompt-sync')({ sigint: true});
@@ -78,7 +74,7 @@ const getGuessAndPattern = () => {
 const filterListByGuess = (list, guess) => {
   let temp = [ ...list ];
   let newTemp = [];
-  for(i = 0; i < 5; i++){
+  for(let i = 0; i < 5; i++){
     switch(guess.pattern[i]) {
       case 'g': {
         newTemp = temp.filter(item => item[i] === guess.guess[i]);
@@ -93,7 +89,7 @@ const filterListByGuess = (list, guess) => {
         break;
       }
       default: {
-        console.error('Error in filterListByGuess, exiting');
+        console.error('Error in filterListByGuess, exiting; pattern: ' + guess.pattern);
         process.exit(9);
       }
     }
@@ -102,25 +98,8 @@ const filterListByGuess = (list, guess) => {
   return temp;
 }
 
-const game = (list) => {
-  console.log("Welcome to Wordle Bot!")
-  
-  console.log("First Guess Suggestion: " + getSuggestionFromList(list).word);
-  console.log("Remaining Possible Words: " + list.length);
-  
-  let tempList = [...list]
-  for(let k = 0; k < 6; k++){
-    const guess = getGuessAndPattern();
-    console.log("Guess: " + guess.guess, " Pattern: " + guess.pattern );
-    if(guess.pattern === 'ggggg') {
-      console.log('Congrats you won!');
-      return;
-    }
-    const newList = filterListByGuess(tempList, guess);
-    console.log("Guess Suggestion: " + getSuggestionFromList(newList).word);
-    console.log("Remaining Possilbe Words: " + newList.length);
-    tempList = [...newList]
-  }
-}
-
-game(text);
+module.exports = {
+  getGuessAndPattern: getGuessAndPattern,
+  filterListByGuess: filterListByGuess,
+  getSuggestionFromList: getSuggestionFromList
+};
