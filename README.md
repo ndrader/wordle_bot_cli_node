@@ -5,10 +5,10 @@ Using the list of all possible solutions this simple bot reduces the list based 
 not optimized, was a messy first pass at getting the code to work and do what it needs to do
 is fast enough when running locally
 
-## To run
+## To run solver
 
 `npm i`
-`node index.js`
+`npm start`
 
 ## Entering a guess
 
@@ -25,6 +25,14 @@ pattern: xxgyx
 ```
 
 If a suggestion given by the program is not accepted by Wordle, enter pattern 'eeeee' to see the next suggestion and remove it from the dictionary.
+
+## Bot vs a Sim of Wordle
+
+Wins: 2290 Losses: 25 Out of: 2315
+
+The lost games came down to equally weighted list of words at which point it is just random guessing to hope to win.
+
+Full results of lost games can be found in resultsAgainstFullList
 
 ## Apr 1 - nytimes
 

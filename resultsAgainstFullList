@@ -1,0 +1,158 @@
+
+> wordle_bot@1.0.0 simVsBot
+> node src/gameSimAgainstBot.js
+
+Wins: 2290 Losses: 25 Out of: 2315
+Lost game stats: 
+[
+  {
+    remainingList: [ 'billy' ],
+    startWord: 'billy',
+    guesses: [ 'arose', 'until', 'filmy', 'willy', 'hilly', 'dilly' ],
+    patterns: [ 'xxxxx', 'xxxyy', 'xggxg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'bitty' ],
+    startWord: 'bitty',
+    guesses: [ 'arose', 'until', 'pithy', 'witty', 'kitty', 'ditty' ],
+    patterns: [ 'xxxxx', 'xxgyx', 'xggxg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'bound', 'found' ],
+    startWord: 'bound',
+    guesses: [ 'arose', 'ingot', 'wound', 'pound', 'mound', 'hound' ],
+    patterns: [ 'xxyxx', 'xyxyx', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'boxer', 'corer', 'foyer' ],
+    startWord: 'boxer',
+    guesses: [ 'arose', 'voter', 'power', 'goner', 'joker', 'homer' ],
+    patterns: [ 'xyyxy', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg' ]
+  },
+  {
+    remainingList: [ 'catch' ],
+    startWord: 'catch',
+    guesses: [ 'arose', 'plant', 'batch', 'watch', 'match', 'hatch' ],
+    patterns: [ 'yxxxx', 'xxyxy', 'xgggg', 'xgggg', 'xgggg', 'ygggg' ]
+  },
+  {
+    remainingList: [ 'boxer', 'corer', 'foyer' ],
+    startWord: 'corer',
+    guesses: [ 'arose', 'voter', 'power', 'goner', 'joker', 'homer' ],
+    patterns: [ 'xyyxy', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg' ]
+  },
+  {
+    remainingList: [ 'daunt', 'taunt' ],
+    startWord: 'daunt',
+    guesses: [ 'arose', 'plant', 'vaunt', 'jaunt', 'haunt', 'gaunt' ],
+    patterns: [ 'yxxxx', 'xxygg', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'diner' ],
+    startWord: 'diner',
+    guesses: [ 'arose', 'inter', 'nicer', 'miner', 'liner', 'finer' ],
+    patterns: [ 'xyxxy', 'yyxgg', 'ygxgg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'dully' ],
+    startWord: 'dully',
+    guesses: [ 'arose', 'until', 'lumpy', 'bulky', 'gully', 'fully' ],
+    patterns: [ 'xxxxx', 'yxxxy', 'ygxxg', 'xggxg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'fiber' ],
+    startWord: 'fiber',
+    guesses: [ 'arose', 'inter', 'viper', 'wider', 'fixer', 'filer' ],
+    patterns: [ 'xyxxy', 'yxxgg', 'xgxgg', 'xgxgg', 'ggxgg', 'ggxgg' ]
+  },
+  {
+    remainingList: [ 'bound', 'found' ],
+    startWord: 'found',
+    guesses: [ 'arose', 'ingot', 'wound', 'pound', 'mound', 'hound' ],
+    patterns: [ 'xxyxx', 'xyxyx', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'boxer', 'corer', 'foyer' ],
+    startWord: 'foyer',
+    guesses: [ 'arose', 'voter', 'power', 'goner', 'joker', 'homer' ],
+    patterns: [ 'xyyxy', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg' ]
+  },
+  {
+    remainingList: [ 'grade' ],
+    startWord: 'grade',
+    guesses: [ 'arose', 'grace', 'graze', 'grave', 'grate', 'grape' ],
+    patterns: [ 'ygxxg', 'gggxg', 'gggxg', 'gggxg', 'gggxg', 'gggxg' ]
+  },
+  {
+    remainingList: [ 'hunch' ],
+    startWord: 'hunch',
+    guesses: [ 'arose', 'until', 'chunk', 'punch', 'munch', 'bunch' ],
+    patterns: [ 'xxxxx', 'yyxxx', 'yyyyx', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'rarer' ],
+    startWord: 'rarer',
+    guesses: [ 'arose', 'later', 'payer', 'wager', 'maker', 'racer' ],
+    patterns: [ 'yyxxy', 'xgxgg', 'xgxgg', 'xgxgg', 'xgxgg', 'ggxgg' ]
+  },
+  {
+    remainingList: [ 'river' ],
+    startWord: 'river',
+    guesses: [ 'arose', 'inter', 'viper', 'liver', 'giver', 'diver' ],
+    patterns: [ 'xyxxy', 'yxxgg', 'ygxgg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'rover' ],
+    startWord: 'rover',
+    guesses: [ 'arose', 'voter', 'mover', 'lover', 'hover', 'cover' ],
+    patterns: [ 'xyyxy', 'ygxgg', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'rower' ],
+    startWord: 'rower',
+    guesses: [ 'arose', 'voter', 'power', 'mower', 'lower', 'cower' ],
+    patterns: [ 'xyyxy', 'xgxgg', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'score' ],
+    startWord: 'score',
+    guesses: [ 'arose', 'swore', 'store', 'spore', 'snore', 'shore' ],
+    patterns: [ 'xygyg', 'gxggg', 'gxggg', 'gxggg', 'gxggg', 'gxggg' ]
+  },
+  {
+    remainingList: [ 'shade', 'shake' ],
+    startWord: 'shade',
+    guesses: [ 'arose', 'haste', 'shave', 'shape', 'shame', 'shale' ],
+    patterns: [ 'yxxyg', 'yyyxg', 'gggxg', 'gggxg', 'gggxg', 'gggxg' ]
+  },
+  {
+    remainingList: [ 'shade', 'shake' ],
+    startWord: 'shake',
+    guesses: [ 'arose', 'haste', 'shave', 'shape', 'shame', 'shale' ],
+    patterns: [ 'yxxyg', 'yyyxg', 'gggxg', 'gggxg', 'gggxg', 'gggxg' ]
+  },
+  {
+    remainingList: [ 'smash' ],
+    startWord: 'smash',
+    guesses: [ 'arose', 'clash', 'quash', 'gnash', 'swash', 'stash' ],
+    patterns: [ 'yxxgx', 'xxggg', 'xxggg', 'xxggg', 'gxggg', 'gxggg' ]
+  },
+  {
+    remainingList: [ 'stack' ],
+    startWord: 'stack',
+    guesses: [ 'arose', 'slant', 'swath', 'stamp', 'staid', 'staff' ],
+    patterns: [ 'yxxyx', 'gxgxy', 'gxgyx', 'gggxx', 'gggxx', 'gggxx' ]
+  },
+  {
+    remainingList: [ 'taste' ],
+    startWord: 'taste',
+    guesses: [ 'arose', 'haste', 'waste', 'paste', 'caste', 'baste' ],
+    patterns: [ 'yxxyg', 'xgggg', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  },
+  {
+    remainingList: [ 'daunt', 'taunt' ],
+    startWord: 'taunt',
+    guesses: [ 'arose', 'plant', 'vaunt', 'jaunt', 'haunt', 'gaunt' ],
+    patterns: [ 'yxxxx', 'xxygg', 'xgggg', 'xgggg', 'xgggg', 'xgggg' ]
+  }
+]
