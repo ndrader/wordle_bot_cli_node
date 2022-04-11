@@ -65,8 +65,8 @@ const getGuessAndPattern = () => {
     guess = prompt('What was your guess? ');
   }
   let pattern = "";
-  while(typeof pattern !== 'string' && !(pattern instanceof String) || pattern.length !== 5 || !/^[gxy]+$/i.test(pattern)){
-    pattern = prompt('What was the pattern g - green, y - yellow, x - grey, ex: ggxyx? ');
+  while(typeof pattern !== 'string' && !(pattern instanceof String) || pattern.length !== 5 || !/^[egxy]+$/i.test(pattern)){
+    pattern = prompt('What was the pattern g - green, y - yellow, x - grey, eeeee - word unknown ex: ggxyx? ');
   }
   return { guess, pattern };
 }
@@ -86,6 +86,10 @@ const filterListByGuess = (list, guess) => {
       }
       case 'y': {
         newTemp = temp.filter(item => item.includes(guess.guess[i]) && item[i] !== guess.guess[i]);
+        break;
+      }
+      case 'e': {
+        newTemp = temp.filter(item => item !== guess.guess);
         break;
       }
       default: {

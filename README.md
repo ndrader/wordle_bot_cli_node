@@ -24,6 +24,8 @@ word: arose
 pattern: xxgyx
 ```
 
+If a suggestion given by the program is not accepted by Wordle, enter pattern 'eeeee' to see the next suggestion and remove it from the dictionary.
+
 ## Bot vs a Sim of Wordle
 
 Wins: 2290 Losses: 25 Out of: 2315
