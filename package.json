@@ -3,8 +3,8 @@
   "version": "1.2.0",
   "description": "",
   "scripts": {
-    "start": "node src/cliRunner.js",
-    "simVsBot": "node src/gameSimAgainstBot.js"
+    "start": "node src/cliScripts/cliRunner.js",
+    "simVsBot": "node src/cliScripts/gameSimAgainstBot.js"
   },
   "author": "",
   "license": "ISC",
